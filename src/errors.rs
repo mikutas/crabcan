@@ -5,6 +5,7 @@ pub enum Errcode{
 }
 
 use std::fmt;
+use std::process::exit;
 
 #[allow(unreachable_patterns)]
 // trait Display, allows Errcode enum to be displayed by:
@@ -20,7 +21,6 @@ impl fmt::Display for Errcode {
     }
 }
 
-use std::process::exit;
 
 // Get the result from a function, and exit the process with the correct error code
 pub fn exit_with_retcode(res: Result<(), Errcode>) {
