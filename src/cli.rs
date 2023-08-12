@@ -35,6 +35,9 @@ pub fn parse_args() -> Result<Args, Errcode> {
     }
 
     // Validate arguments
+    if !args.mount_dir.exists() || !args.mount_dir.is_dir(){
+        return Err(Errcode::ArgumentInvalid("mount"));
+    }
 
     Ok(args)
 }

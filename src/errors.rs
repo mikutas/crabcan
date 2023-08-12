@@ -2,6 +2,7 @@
 #[derive(Debug)]
 // Contains all possible errors in our tool
 pub enum Errcode{
+    ArgumentInvalid(&'static str),
 }
 
 use std::fmt;
@@ -16,6 +17,8 @@ impl fmt::Display for Errcode {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         // Define what behaviour for each variant of the enum
         match &self{
+            // Message to display when an argument is invalid
+            Errcode::ArgumentInvalid(element) => write!(f, "ArgumentInvalid: {}", element),
             _ => write!(f, "{:?}", self) // For any variant not previously covered
         }
     }
