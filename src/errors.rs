@@ -2,6 +2,8 @@
 #[derive(Debug)]
 // Contains all possible errors in our tool
 pub enum Errcode{
+    ContainerError(u8),
+    NotSupported(u8),
     ArgumentInvalid(&'static str),
 }
 

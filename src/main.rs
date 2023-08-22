@@ -5,7 +5,7 @@ mod config;
 
 use std::process::exit;
 use errors::exit_with_retcode;
-
+#[macro_use] extern crate scan_fmt;
 
 fn main() {
     let args = match cli::parse_args() {
